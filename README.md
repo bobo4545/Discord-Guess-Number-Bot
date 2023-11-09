@@ -1,4 +1,4 @@
-# Discord-Guess-Number-Bot
+# Discord-Guess-Number-SelfBot
 某伺服器的猜數字Discord SelfBot
 
 ## 使用方法
