@@ -2,9 +2,13 @@
 某伺服器的猜數字Discord SelfBot
 
 ## 安裝
-```pip install git+https://github.com/dolfies/discord.py-self
+```
+pip install git+https://github.com/dolfies/discord.py-self
 pip uninstall aiohttp
-pip install aiohttp```
+pip install aiohttp
+```
+
+aiohttp安裝的版本會有問題，所以需要重新安裝
 
 ## 使用方法
 將TOKEN放入.env
