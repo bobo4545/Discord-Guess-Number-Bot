@@ -12,6 +12,7 @@ bot = commands.Bot(command_prefix='>', self_bot=True)
 TARGET_CHANNEL_IDS = [123456789, 123456789] #檢測該頻道是否有傳啟動的訊息 "您猜到了" line 39
 Guess_Channel_ID = 123456789 #該伺服器猜數字頻道，用來檢測是否有使用者正在猜數字 有輸入訊息會暫停該機器人20分鐘
 Notify_Channel_ID = 123456789 #連續猜測超過12次發送停止通知 暫停猜數字功能20分鐘暫停通知 
+Resume_Channel_ID = 123456789 #暫停20分鐘後開始的頻道ID 再次傳送啟動訊息 設定為猜數字的機器人私訊頻道ID
 
 min_number = 1
 max_number = 1001
@@ -35,7 +36,7 @@ async def on_message(message):
         isStop = 1
         await asyncio.sleep(1200)  # 暂停程序 10 分钟（600 秒）
         isStop = 0
-        channel = bot.get_channel(1139232670451236926) #設定要猜的機器人頻道ID
+        channel = bot.get_channel(Resume_Channel_ID)
         await channel.send("您猜到了")
         return
 
