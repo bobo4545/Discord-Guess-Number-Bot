@@ -10,9 +10,8 @@ load_dotenv()
 bot = commands.Bot(command_prefix='>', self_bot=True)
 
 TARGET_CHANNEL_IDS = [1139232670451236926, 1139213393434263665] #檢測是否有傳訊息
-Guess_Channel_ID = 934035353793343530 #該伺服器猜數字頻道
-PROTECTED_CHANNEL_ID = 1139213393434263665 #連續猜測超過12次 通知
-Notify_Channel_ID = 1139213393434263665 #暫停猜數字功能20分鐘 通知
+Guess_Channel_ID = 934035353793343530 #該伺服器猜數字頻道，用來檢測是否有使用者正在猜數字 有輸入訊息會暫停該機器人20分鐘
+Notify_Channel_ID = 1139213393434263665 #連續猜測超過12次發送停止通知 暫停猜數字功能20分鐘 通知
 
 min_number = 1
 max_number = 1001
@@ -53,7 +52,7 @@ async def on_message(message):
             elif "大於" in message.content.lower():
                 consecutive_count += 1
                 if consecutive_count > 12:
-                    channel = bot.get_channel(PROTECTED_CHANNEL_ID)
+                    channel = bot.get_channel(Notify_Channel_ID)
                     await channel.send("已連續猜測超過12次，強制停止循環。")
                     consecutive_count = 0
                     return
@@ -65,7 +64,7 @@ async def on_message(message):
             elif "小於" in message.content.lower():
                 consecutive_count += 1
                 if consecutive_count > 12:
-                    channel = bot.get_channel(PROTECTED_CHANNEL_ID)
+                    channel = bot.get_channel(Notify_Channel_ID)
                     await channel.send("已連續猜測超過12次，強制停止循環。")
                     consecutive_count = 0
                     return
