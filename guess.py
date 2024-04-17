@@ -9,10 +9,9 @@ import datetime
 load_dotenv()
 bot = commands.Bot(command_prefix='>', self_bot=True)
 
-TARGET_USER_IDS = [860536596758396938, 795160064713293854, 985532746027925595] #只檢測這些使用者的訊息
 TARGET_CHANNEL_IDS = [1139232670451236926, 1139213393434263665] #檢測是否有傳訊息
-PROTECTED_CHANNEL_ID = 1139213393434263665 #連續猜測超過12次 通知
 Guess_Channel_ID = 934035353793343530 #該伺服器猜數字頻道
+PROTECTED_CHANNEL_ID = 1139213393434263665 #連續猜測超過12次 通知
 Notify_Channel_ID = 1139213393434263665 #暫停猜數字功能20分鐘 通知
 
 min_number = 1
